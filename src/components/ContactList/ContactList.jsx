@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
-import { Button } from 'components/ContactForm/styled'
-import { nanoid } from 'nanoid'
+
 // import { ContactItem } from '../ContactItem'
 import {Section, ContactItem, ContactButton, ContactName } from './styled'
 
