@@ -1,7 +1,7 @@
 
 import React, { Component } from "react";
 import { ThemeProvider } from 'styled-components'
-import { theme } from '../Theme'
+import { theme } from '../theme'
 import { nanoid } from 'nanoid'
 import { ContactForm } from "./ContactForm";
 import { ContactList } from "./ContactList/";

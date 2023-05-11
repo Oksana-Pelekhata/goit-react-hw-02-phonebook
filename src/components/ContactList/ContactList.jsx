@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 
-// import { ContactItem } from '../ContactItem'
 import {Section, ContactItem, ContactButton, ContactName } from './styled'
 
 

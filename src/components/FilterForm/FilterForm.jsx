@@ -18,7 +18,7 @@ export const FilterForm = ({ label, onChange }) => {
           id="filter"
           name="filter"
           onChange={onChange}
-          value={onChange.filter}
+        //   value={onChange.filter}
         />
       </StyledForm>
     </Formik>
