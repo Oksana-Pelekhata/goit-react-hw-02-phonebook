@@ -1,26 +1,24 @@
 
-import React, { Component } from "react";
-import { ThemeProvider } from 'styled-components'
-import { theme } from '../theme'
-import { nanoid } from 'nanoid'
-import { ContactForm } from "./ContactForm";
-import { ContactList } from "./ContactList/";
-import {FilterForm} from './FilterForm'
-
+import React, { Component } from 'react';
+import { ThemeProvider } from 'styled-components';
+import { theme } from '../theme1';
+import { nanoid } from 'nanoid';
+import { ContactForm } from './ContactForm';
+import { ContactList } from './ContactList/';
+import { FilterForm } from './FilterForm';
 
 export class App extends Component {
-
   state = {
-contacts: [
-    {id: 'id-1', name: 'Rosie Simpson', number: '459-12-56'},
-    {id: 'id-2', name: 'Hermione Kline', number: '443-89-12'},
-    {id: 'id-3', name: 'Eden Clements', number: '645-17-79'},
-    {id: 'id-4', name: 'Annie Copeland', number: '227-91-26'},
-  ],
-  filter: '',
+    contacts: [
+      { id: 'id-1', name: 'Rosie Simpson', number: '459-12-56' },
+      { id: 'id-2', name: 'Hermione Kline', number: '443-89-12' },
+      { id: 'id-3', name: 'Eden Clements', number: '645-17-79' },
+      { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
+    ],
+    filter: '',
   };
-  
-   addContact = (name, number) => {
+
+  addContact = (name, number) => {
     const checkName = this.state.contacts.some(
       el => el.name.toLowerCase() === name.toLowerCase()
     );
@@ -57,8 +55,8 @@ contacts: [
   };
 
   render() {
-     const filteredContacts = this.getFilteredContacts();
-      const { contacts } = this.state;
+    const filteredContacts = this.getFilteredContacts();
+    const { contacts, filter } = this.state;
 
     return (
       <ThemeProvider theme={theme}>
@@ -66,15 +64,17 @@ contacts: [
         <FilterForm
           label="Find contacts by name"
           onChange={this.handleFilterChange}
+          value={filter}
         />
         {contacts.length === 0 ? (
           <p>You don't have contacts yet</p>
         ) : (
-          <ContactList options={filteredContacts} removeContact={this.removeContact} />
+          <ContactList
+            options={filteredContacts}
+            removeContact={this.removeContact}
+          />
         )}
-       </ThemeProvider>
-    
-    )
+      </ThemeProvider>
+    );
   }
-  
 }

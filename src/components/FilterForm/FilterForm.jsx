@@ -1,16 +1,10 @@
 import PropTypes from 'prop-types';
-import {Section, StyledForm, Label, Input, Title } from './styled'
-import { Formik } from 'formik';
+import { Section, StyledForm, Label, Input, Title } from './styled';
 
-export const FilterForm = ({ label, onChange }) => {
-  const initialValues = {
-    filter: '',
-  };
-
-    return (
-        <Section>
-            <Title>Contacts</Title>
-        <Formik initialValues={initialValues}>
+export const FilterForm = ({ label, onChange, filter }) => {
+  return (
+    <Section>
+      <Title>Contacts</Title>
       <StyledForm>
         <Label htmlFor="filter">{label}</Label>
         <Input
@@ -18,12 +12,11 @@ export const FilterForm = ({ label, onChange }) => {
           id="filter"
           name="filter"
           onChange={onChange}
-        //   value={onChange.filter}
+          value={filter}
         />
       </StyledForm>
-    </Formik>
-      </Section>
-    );
+    </Section>
+  );
 };
 
 FilterForm.propTypes = {
